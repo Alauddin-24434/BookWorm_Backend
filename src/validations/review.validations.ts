@@ -6,5 +6,10 @@ const createReview = z.object({
     book: z.string("Book is required"),
     rating: z.number("Number is required"),
     comment: z.string("Comment is required"),
-    
-})
+
+});
+
+
+export const reviewValidations = {
+    createReview
+}

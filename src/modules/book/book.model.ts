@@ -28,7 +28,7 @@ const bookSchema = new Schema<IBook>(
       type: String,
       required: true,
     },
-    totalpages: {
+    totalPages: {
       type: Number,
       required: true,
     },

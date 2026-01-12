@@ -6,7 +6,7 @@ export interface IBook{
     description: string;
     genre: Types.ObjectId,
     coverImage: string;
-    totalpages: number;
+    totalPages: number;
     averageRating: number;
     totalReviews: number;
     createdBy: Types.ObjectId;
