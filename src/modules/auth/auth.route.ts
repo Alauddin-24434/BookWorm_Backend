@@ -9,5 +9,6 @@ import { protect } from "../../middlewares/authenticationMiddleawre";
 router.post("/signup", upload.single("profilePhoto"), authController.craeteUser);
 router.post("/login", authController.loginUser);
 router.get("/stats", protect, authController.statsWithUserRole);
+router.post('/refresh-token', authController.refreshToken);
 
 export const authRoutes= router;

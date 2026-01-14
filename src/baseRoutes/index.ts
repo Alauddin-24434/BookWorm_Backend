@@ -6,6 +6,7 @@ import { genreRoutes } from "../modules/genre/genre.route";
 import { bookRoutes } from "../modules/book/book.route";
 import { userLibraryRoutes } from "../modules/userLibrary/userLibrary.route";
 import { userRoutes } from "../modules/user/user.route";
+import { tutorialRoutes } from "../modules/tutorial/tutorial.route";
 
 /* =========================
  Base Routes
@@ -22,6 +23,10 @@ export const baseRoute = (app: Application, basePath: string) => {
       {
           path: `${basePath}/users`,
           route: userRoutes,
+    },
+      {
+          path: `${basePath}/tutorials`,
+          route: tutorialRoutes,
       }
   ];
 
