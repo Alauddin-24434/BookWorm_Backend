@@ -7,12 +7,24 @@ export enum Role {
 
 
 export interface IUser {
+    _id: string
     name: string;
     email: string;
     profilePhoto: string;
+    annualGoal: number;
+    readingStreak: number;
     role: Role;
     password: string;
-    readingGoal?: number;
     followers?: Types.ObjectId[];
     following?: Types.ObjectId[];
+    library?: Types.ObjectId[];
+    history?: Types.ObjectId[];
+}
+
+
+export interface ILogin {
+
+   
+    email: string;
+    password: string;
 }

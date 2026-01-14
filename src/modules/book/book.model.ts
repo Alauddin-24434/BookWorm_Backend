@@ -12,7 +12,7 @@ const bookSchema = new Schema<IBook>(
     description: {
       type: String,
       trim: true,
-      default: null,
+      required: true,
     },
     author: {
       type: String,
@@ -26,6 +26,10 @@ const bookSchema = new Schema<IBook>(
     },
     coverImage: {
       type: String,
+      required: true,
+    },
+    pdfFile: {
+      type: String, 
       required: true,
     },
     totalPages: {
@@ -45,6 +49,11 @@ const bookSchema = new Schema<IBook>(
       ref: "User",
       required: true,
     },
+    
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },  
   },
   { timestamps: true, versionKey: false }
 );

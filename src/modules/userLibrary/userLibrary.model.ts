@@ -13,9 +13,9 @@ const userLibrarySchema = new Schema<IUserLibrary>(
       ref: "Book",
       required: true,
     },
-    shelf: {
+    shelfType: {
       type: String,
-      enum: ["wantToRead", "currentlyReading", "read"],
+      enum:Object.values(Shelf),
       default: Shelf.WantToRead,
     },
     progress: {
@@ -26,9 +26,11 @@ const userLibrarySchema = new Schema<IUserLibrary>(
     },
     startedAt: {
       type: Date,
+      default: null,
     },
     finishedAt: {
       type: Date,
+      default: null,
     },
   },
   { timestamps: true, versionKey: false }

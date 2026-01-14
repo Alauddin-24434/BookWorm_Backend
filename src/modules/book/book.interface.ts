@@ -9,6 +9,8 @@ export interface IBook{
     totalPages: number;
     averageRating: number;
     totalReviews: number;
+    pdfFile: string;
     createdBy: Types.ObjectId;
+    isDeleted?: boolean;
   
 }

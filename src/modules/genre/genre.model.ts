@@ -11,6 +11,10 @@ const genreSchema = new Schema<IGenre>(
       type: String,
       default: null,
     },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true, versionKey: false }
 );
