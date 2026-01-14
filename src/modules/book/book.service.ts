@@ -33,7 +33,7 @@ const softDeleteBook = async (bookId: string): Promise<IBook | null> => {
 //  get all books service here
 const getAllBooks = async (): Promise<IBook[]> => {
     // logic to get all books
-    return await Book.find({ isDeleted: { $ne: true } });
+    return await Book.find({ isDeleted: { $ne: true } }).populate("genre");
 };
 
 //  get book by id service here

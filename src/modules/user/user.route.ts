@@ -7,6 +7,6 @@ import { authorize } from "../../middlewares/authorizationMiddleware";
 import { protect } from "../../middlewares/authenticationMiddleawre";
 
 router.get("/me", protect, userController.me);
-router.get("/", authorize("admin"), userController.getAllUsers);
-
+router.get("/", protect, authorize("admin"), userController.getAllUsers);
+router.patch("/:userId/role", protect, authorize("admin"), userController.roleUpdateByAdmin);
 export const userRoutes = router;

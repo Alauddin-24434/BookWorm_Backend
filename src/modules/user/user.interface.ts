@@ -19,6 +19,7 @@ export interface IUser {
     following?: Types.ObjectId[];
     library?: Types.ObjectId[];
     history?: Types.ObjectId[];
+    isDeleted: boolean;
 }
 
 

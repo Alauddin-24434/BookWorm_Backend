@@ -11,11 +11,21 @@ import { AppError } from "../../error/appError";
 import { uploadToCloudinary } from "../../config/cloudinary";
 
 const createBook = catchAsync(async (req: Request, res: Response) => {
-    console.log(req.body);
+  
+
+   const createdBy = req.user?._id?.toString();
+    console.log(createdBy)
+
+    console.log(req.body)
+    const body = {
+        ...req.body,
+        createdBy:createdBy
+    }
 
     // Zod validation
-    const validatedData = BookValidations.createBook.parse({...req.body, totalPages: Number(req.body.totalPages)});
+    const validatedData = BookValidations.createBook.parse({ ...body,totalPages: Number(req.body.totalPages) });
 
+   
     // uploaded cover image handling
     if (!req.file) {
         throw new AppError("Cover image is required", 400); 
@@ -30,7 +40,7 @@ const createBook = catchAsync(async (req: Request, res: Response) => {
 
     // Service call to create book
     const result = await bookService.createBook({ ...validatedData, coverImage } as unknown as IBook);
-
+// console.log("RESULT", result)
     // Send response
     res.status(201).json({
         success: true,
@@ -44,8 +54,10 @@ const createBook = catchAsync(async (req: Request, res: Response) => {
 const updateBook = catchAsync(async (req: Request, res: Response) => {
     const { id } = req.params;
 
+    console.log(req.body)
     // Zod validation
-    const validatedData = BookValidations.updateBook.parse(req.body);
+ const validatedData = BookValidations.updateBook.parse({ ...req.body,totalPages: Number(req.body.totalPages) });
+
 
     //    uplod cloudinary logic here
     let coverImage;

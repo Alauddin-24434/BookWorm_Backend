@@ -17,7 +17,7 @@ export interface AuthRequest extends Request {
 export const protect = async (req: AuthRequest, res: Response, next: NextFunction) => {
     let token: string | undefined;
     
-    console.log(req.headers.authorization);
+    // console.log(req.headers.authorization);
 
   // Token check (header Authorization: Bearer token)
   if (
@@ -34,7 +34,7 @@ export const protect = async (req: AuthRequest, res: Response, next: NextFunctio
   try {
     const secret = process.env.ACCESS_TOKEN_SECRET || "default-secret";
       const decoded = jwt.verify(token, secret) as JwtPayload;
-      console.log(decoded);
+      // console.log(decoded);
 
     // user find
     const user = await User.findById(decoded.id).select("-password");

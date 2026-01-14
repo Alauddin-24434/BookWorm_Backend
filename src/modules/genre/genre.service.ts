@@ -17,7 +17,7 @@ const createGenre = async (data: IGenre) => {
 
 // getAllGenres
 const getAllGenres = async () => {
-  const genres = await Genre.find();
+  const genres = await Genre.find({isDeleted:false});
   return genres;
 };
 

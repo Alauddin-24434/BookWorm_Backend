@@ -13,8 +13,8 @@ import { userRoutes } from "../modules/user/user.route";
 export const baseRoute = (app: Application, basePath: string) => {
   const routes = [
     { path: `${basePath}/auth`, route: authRoutes },
-    { path: `${basePath}/genre`, route: genreRoutes },
-      { path: `${basePath}/book`, route: bookRoutes },
+    { path: `${basePath}/genres`, route: genreRoutes },
+      { path: `${basePath}/books`, route: bookRoutes },
       {
         path: `${basePath}/user-library`,
         route: userLibraryRoutes,   

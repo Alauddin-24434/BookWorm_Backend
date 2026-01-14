@@ -42,10 +42,10 @@ const craeteUser = catchAsync(async (req: Request, res: Response) => {
 
 
 const loginUser = catchAsync(async (req: Request, res: Response) => {
-    console.log("Login request body:", req.body);
+    // console.log("Login request body:", req.body);
     // zod validation
     const validatedData = uservalidations.login.parse(req.body);
-    console.log("Validated data:", validatedData);
+    // console.log("Validated data:", validatedData);
  
 
     // service call
@@ -59,7 +59,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
         secure: process.env.NODE_ENV === "production",
     });
     // response
-    console.log("Login result:", result);
+    // console.log("Login result:", result);
     res.status(200).json({
         success: true,
         message: "User logged in successfully",
